@@ -21,19 +21,20 @@ const Header = ({ name }) => {
 const Content = ({ parts }) => {
 	return (
 		<div>
-			<Part parts={parts} />
+			{parts.map((part) => (
+				<Part key={part.id} part={part} />
+			))}
 		</div>
 	);
 };
 
-const Part = ({ parts }) => {
+const Part = ({ part }) => {
+	console.log(part);
 	return (
 		<div>
-			{parts.map((part) => (
-				<p key={part.id}>
-					{part.name} {part.exercises}
-				</p>
-			))}
+			<p>
+				{part.name} {part.exercises}
+			</p>
 		</div>
 	);
 };
