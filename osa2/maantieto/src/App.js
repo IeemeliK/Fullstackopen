@@ -18,6 +18,10 @@ function App() {
 		setFilter(e.target.value);
 	};
 
+	const buttonHandler = (countryName) => {
+		setFilter(countryName);
+	};
+
 	const countriesToShow = countries.filter((country) =>
 		country.name.common.toLowerCase().includes(filter.toLowerCase())
 	);
@@ -25,7 +29,7 @@ function App() {
 	return (
 		<>
 			<Filter handler={handleFilterChange} />
-			<Countries countries={countriesToShow} />
+			<Countries countries={countriesToShow} buttonHandler={buttonHandler} />
 		</>
 	);
 }
